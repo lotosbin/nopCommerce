@@ -479,8 +479,10 @@ namespace Nop.Web.Factories
                 }
             }
 
-            var categoryIds = new List<int>();
-            categoryIds.Add(category.Id);
+            var categoryIds = new List<int>
+            {
+                category.Id
+            };
             if (_catalogSettings.ShowProductsFromSubcategories)
             {
                 //include subcategories
@@ -725,8 +727,10 @@ namespace Nop.Web.Factories
                         category.Id);
                     categoryModel.NumberOfProducts = _cacheManager.Get(cacheKey, () =>
                     {
-                        var categoryIds = new List<int>();
-                        categoryIds.Add(category.Id);
+                        var categoryIds = new List<int>
+                        {
+                            category.Id
+                        };
                         //include subcategories
                         if (_catalogSettings.ShowCategoryProductNumberIncludingSubcategories)
                             categoryIds.AddRange(GetChildCategoryIds(category.Id));

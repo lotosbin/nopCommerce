@@ -1953,8 +1953,10 @@ namespace Nop.Web.Areas.Admin.Controllers
             }
 
             var order = _orderService.GetOrderById(orderId);
-            var orders = new List<Order>();
-            orders.Add(order);
+            var orders = new List<Order>
+            {
+                order
+            };
             byte[] bytes;
             using (var stream = new MemoryStream())
             {
@@ -3651,9 +3653,11 @@ namespace Nop.Web.Areas.Admin.Controllers
             if (_workContext.CurrentVendor != null && !HasAccessToShipment(shipment))
                 return RedirectToAction("List");
 
-            var shipments = new List<Shipment>();
-            shipments.Add(shipment);
-            
+            var shipments = new List<Shipment>
+            {
+                shipment
+            };
+
             byte[] bytes;
             using (var stream = new MemoryStream())
             {
@@ -4134,11 +4138,13 @@ namespace Nop.Web.Areas.Admin.Controllers
             if (_workContext.CurrentVendor != null)
                 return Content("");
 
-            var report = new List<OrderAverageReportLineSummary>();
-            report.Add(_orderReportService.OrderAverageReport(0, OrderStatus.Pending));
-            report.Add(_orderReportService.OrderAverageReport(0, OrderStatus.Processing));
-            report.Add(_orderReportService.OrderAverageReport(0, OrderStatus.Complete));
-            report.Add(_orderReportService.OrderAverageReport(0, OrderStatus.Cancelled));
+            var report = new List<OrderAverageReportLineSummary>
+            {
+                _orderReportService.OrderAverageReport(0, OrderStatus.Pending),
+                _orderReportService.OrderAverageReport(0, OrderStatus.Processing),
+                _orderReportService.OrderAverageReport(0, OrderStatus.Complete),
+                _orderReportService.OrderAverageReport(0, OrderStatus.Cancelled)
+            };
             var model = report.Select(x => new OrderAverageReportLineSummaryModel
             {
                 OrderStatus = x.OrderStatus.GetLocalizedEnum(_localizationService, _workContext),

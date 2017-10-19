@@ -393,8 +393,10 @@ namespace Nop.Web.Controllers
 
                     //register default permissions
                     //var permissionProviders = EngineContext.Current.Resolve<ITypeFinder>().FindClassesOfType<IPermissionProvider>();
-                    var permissionProviders = new List<Type>();
-                    permissionProviders.Add(typeof(StandardPermissionProvider));
+                    var permissionProviders = new List<Type>
+                    {
+                        typeof(StandardPermissionProvider)
+                    };
                     foreach (var providerType in permissionProviders)
                     {
                         var provider = (IPermissionProvider)Activator.CreateInstance(providerType);

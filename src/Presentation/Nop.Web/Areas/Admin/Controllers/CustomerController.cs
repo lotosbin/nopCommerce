@@ -214,28 +214,30 @@ namespace Nop.Web.Areas.Admin.Controllers
         
         protected virtual IList<RegisteredCustomerReportLineModel> GetReportRegisteredCustomersModel()
         {
-            var report = new List<RegisteredCustomerReportLineModel>();
-            report.Add(new RegisteredCustomerReportLineModel
+            var report = new List<RegisteredCustomerReportLineModel>
             {
-                Period = _localizationService.GetResource("Admin.Customers.Reports.RegisteredCustomers.Fields.Period.7days"),
-                Customers = _customerReportService.GetRegisteredCustomersReport(7)
-            });
+                new RegisteredCustomerReportLineModel
+                {
+                    Period = _localizationService.GetResource("Admin.Customers.Reports.RegisteredCustomers.Fields.Period.7days"),
+                    Customers = _customerReportService.GetRegisteredCustomersReport(7)
+                },
 
-            report.Add(new RegisteredCustomerReportLineModel
-            {
-                Period = _localizationService.GetResource("Admin.Customers.Reports.RegisteredCustomers.Fields.Period.14days"),
-                Customers = _customerReportService.GetRegisteredCustomersReport(14)
-            });
-            report.Add(new RegisteredCustomerReportLineModel
-            {
-                Period = _localizationService.GetResource("Admin.Customers.Reports.RegisteredCustomers.Fields.Period.month"),
-                Customers = _customerReportService.GetRegisteredCustomersReport(30)
-            });
-            report.Add(new RegisteredCustomerReportLineModel
-            {
-                Period = _localizationService.GetResource("Admin.Customers.Reports.RegisteredCustomers.Fields.Period.year"),
-                Customers = _customerReportService.GetRegisteredCustomersReport(365)
-            });
+                new RegisteredCustomerReportLineModel
+                {
+                    Period = _localizationService.GetResource("Admin.Customers.Reports.RegisteredCustomers.Fields.Period.14days"),
+                    Customers = _customerReportService.GetRegisteredCustomersReport(14)
+                },
+                new RegisteredCustomerReportLineModel
+                {
+                    Period = _localizationService.GetResource("Admin.Customers.Reports.RegisteredCustomers.Fields.Period.month"),
+                    Customers = _customerReportService.GetRegisteredCustomersReport(30)
+                },
+                new RegisteredCustomerReportLineModel
+                {
+                    Period = _localizationService.GetResource("Admin.Customers.Reports.RegisteredCustomers.Fields.Period.year"),
+                    Customers = _customerReportService.GetRegisteredCustomersReport(365)
+                }
+            };
 
             return report;
         }

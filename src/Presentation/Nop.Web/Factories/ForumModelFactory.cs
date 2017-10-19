@@ -73,25 +73,26 @@ namespace Nop.Web.Factories
         /// <returns>Collection of the select list item</returns>
         protected virtual IEnumerable<SelectListItem> ForumTopicTypesList()
         {
-            var list = new List<SelectListItem>();
-
-            list.Add(new SelectListItem
+            var list = new List<SelectListItem>
             {
-                Text = _localizationService.GetResource("Forum.Normal"),
-                Value = ((int)ForumTopicType.Normal).ToString()
-            });
+                new SelectListItem
+                {
+                    Text = _localizationService.GetResource("Forum.Normal"),
+                    Value = ((int)ForumTopicType.Normal).ToString()
+                },
 
-            list.Add(new SelectListItem
-            {
-                Text = _localizationService.GetResource("Forum.Sticky"),
-                Value = ((int)ForumTopicType.Sticky).ToString()
-            });
+                new SelectListItem
+                {
+                    Text = _localizationService.GetResource("Forum.Sticky"),
+                    Value = ((int)ForumTopicType.Sticky).ToString()
+                },
 
-            list.Add(new SelectListItem
-            {
-                Text = _localizationService.GetResource("Forum.Announcement"),
-                Value = ((int)ForumTopicType.Announcement).ToString()
-            });
+                new SelectListItem
+                {
+                    Text = _localizationService.GetResource("Forum.Announcement"),
+                    Value = ((int)ForumTopicType.Announcement).ToString()
+                }
+            };
 
             return list;
         }
@@ -693,14 +694,15 @@ namespace Nop.Web.Factories
             model.LimitList = limitList;
 
             // Create the values for the "Search in forum" select list
-            var forumsSelectList = new List<SelectListItem>();
-            forumsSelectList.Add(
+            var forumsSelectList = new List<SelectListItem>
+            {
                 new SelectListItem
                 {
                     Text = _localizationService.GetResource("Forum.Search.SearchInForum.All"),
                     Value = "0",
                     Selected = true,
-                });
+                }
+            };
             var separator = "--";
             var forumGroups = _forumService.GetAllForumGroups();
             foreach (var fg in forumGroups)

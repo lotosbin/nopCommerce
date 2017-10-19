@@ -146,10 +146,13 @@ namespace Nop.Services.Messages
                 if (_allowedTokens != null)
                     return _allowedTokens;
 
-                _allowedTokens = new Dictionary<string, IEnumerable<string>>();
+                _allowedTokens = new Dictionary<string, IEnumerable<string>>
+                {
 
-                //store tokens
-                _allowedTokens.Add(TokenGroupNames.StoreTokens, new[]
+                    //store tokens
+                    {
+                        TokenGroupNames.StoreTokens,
+                        new[]
                 {
                     "%Store.Name%",
                     "%Store.URL%",
@@ -162,10 +165,13 @@ namespace Nop.Services.Messages
                     "%Twitter.URL%",
                     "%YouTube.URL%",
                     "%GooglePlus.URL%"
-                });
+                }
+                    },
 
-                //customer tokens
-                _allowedTokens.Add(TokenGroupNames.CustomerTokens, new[]
+                    //customer tokens
+                    {
+                        TokenGroupNames.CustomerTokens,
+                        new[]
                 {
                     "%Customer.Email%",
                     "%Customer.Username%",
@@ -179,10 +185,13 @@ namespace Nop.Services.Messages
                     "%Customer.AccountActivationURL%",
                     "%Customer.EmailRevalidationURL%",
                     "%Wishlist.URLForCustomer%"
-                });
+                }
+                    },
 
-                //order tokens
-                _allowedTokens.Add(TokenGroupNames.OrderTokens, new[]
+                    //order tokens
+                    {
+                        TokenGroupNames.OrderTokens,
+                        new[]
                 {
                     "%Order.OrderNumber%",
                     "%Order.CustomerFullName%",
@@ -221,49 +230,67 @@ namespace Nop.Services.Messages
                     "%Order.Product(s)%",
                     "%Order.CreatedOn%",
                     "%Order.OrderURLForCustomer%"
-                });
+                }
+                    },
 
-                //shipment tokens
-                _allowedTokens.Add(TokenGroupNames.ShipmentTokens, new[]
+                    //shipment tokens
+                    {
+                        TokenGroupNames.ShipmentTokens,
+                        new[]
                 {
                     "%Shipment.ShipmentNumber%",
                     "%Shipment.TrackingNumber%",
                     "%Shipment.TrackingNumberURL%",
                     "%Shipment.Product(s)%",
                     "%Shipment.URLForCustomer%"
-                });
+                }
+                    },
 
-                //refunded order tokens
-                _allowedTokens.Add(TokenGroupNames.RefundedOrderTokens, new[]
+                    //refunded order tokens
+                    {
+                        TokenGroupNames.RefundedOrderTokens,
+                        new[]
                 {
                     "%Order.AmountRefunded%"
-                });
+                }
+                    },
 
-                //order note tokens
-                _allowedTokens.Add(TokenGroupNames.OrderNoteTokens, new[]
+                    //order note tokens
+                    {
+                        TokenGroupNames.OrderNoteTokens,
+                        new[]
                 {
                     "%Order.NewNoteText%",
                     "%Order.OrderNoteAttachmentUrl%"
-                });
+                }
+                    },
 
-                //recurring payment tokens
-                _allowedTokens.Add(TokenGroupNames.RecurringPaymentTokens, new[]
+                    //recurring payment tokens
+                    {
+                        TokenGroupNames.RecurringPaymentTokens,
+                        new[]
                 {
                     "%RecurringPayment.ID%",
                     "%RecurringPayment.CancelAfterFailedPayment%",
                     "%RecurringPayment.RecurringPaymentType%"
-                });
+                }
+                    },
 
-                //newsletter subscription tokens
-                _allowedTokens.Add(TokenGroupNames.SubscriptionTokens, new[]
+                    //newsletter subscription tokens
+                    {
+                        TokenGroupNames.SubscriptionTokens,
+                        new[]
                 {
                     "%NewsLetterSubscription.Email%",
                     "%NewsLetterSubscription.ActivationUrl%",
                     "%NewsLetterSubscription.DeactivationUrl%"
-                });
+                }
+                    },
 
-                //product tokens
-                _allowedTokens.Add(TokenGroupNames.ProductTokens, new[]
+                    //product tokens
+                    {
+                        TokenGroupNames.ProductTokens,
+                        new[]
                 {
                     "%Product.ID%",
                     "%Product.Name%",
@@ -271,10 +298,13 @@ namespace Nop.Services.Messages
                     "%Product.ProductURLForCustomer%",
                     "%Product.SKU%",
                     "%Product.StockQuantity%"
-                });
+                }
+                    },
 
-                //return request tokens
-                _allowedTokens.Add(TokenGroupNames.ReturnRequestTokens, new[]
+                    //return request tokens
+                    {
+                        TokenGroupNames.ReturnRequestTokens,
+                        new[]
                 {
                     "%ReturnRequest.CustomNumber%",
                     "%ReturnRequest.OrderId%",
@@ -285,45 +315,63 @@ namespace Nop.Services.Messages
                     "%ReturnRequest.CustomerComment%",
                     "%ReturnRequest.StaffNotes%",
                     "%ReturnRequest.Status%"
-                });
+                }
+                    },
 
-                //forum tokens
-                _allowedTokens.Add(TokenGroupNames.ForumTokens, new[]
+                    //forum tokens
+                    {
+                        TokenGroupNames.ForumTokens,
+                        new[]
                 {
                     "%Forums.ForumURL%",
                     "%Forums.ForumName%"
-                });
+                }
+                    },
 
-                //forum topic tokens
-                _allowedTokens.Add(TokenGroupNames.ForumTopicTokens, new[]
+                    //forum topic tokens
+                    {
+                        TokenGroupNames.ForumTopicTokens,
+                        new[]
                 {
                     "%Forums.TopicURL%",
                     "%Forums.TopicName%"
-                });
+                }
+                    },
 
-                //forum post tokens
-                _allowedTokens.Add(TokenGroupNames.ForumPostTokens, new[]
+                    //forum post tokens
+                    {
+                        TokenGroupNames.ForumPostTokens,
+                        new[]
                 {
                     "%Forums.PostAuthor%",
                     "%Forums.PostBody%"
-                });
+                }
+                    },
 
-                //private message tokens
-                _allowedTokens.Add(TokenGroupNames.PrivateMessageTokens, new[]
+                    //private message tokens
+                    {
+                        TokenGroupNames.PrivateMessageTokens,
+                        new[]
                 {
                     "%PrivateMessage.Subject%",
                     "%PrivateMessage.Text%"
-                });
+                }
+                    },
 
-                //vendor tokens
-                _allowedTokens.Add(TokenGroupNames.VendorTokens, new[]
+                    //vendor tokens
+                    {
+                        TokenGroupNames.VendorTokens,
+                        new[]
                 {
                     "%Vendor.Name%",
                     "%Vendor.Email%"
-                });
+                }
+                    },
 
-                //gift card tokens
-                _allowedTokens.Add(TokenGroupNames.GiftCardTokens, new[]
+                    //gift card tokens
+                    {
+                        TokenGroupNames.GiftCardTokens,
+                        new[]
                 {
                     "%GiftCard.SenderName%",
                     "%GiftCard.SenderEmail%",
@@ -332,77 +380,109 @@ namespace Nop.Services.Messages
                     "%GiftCard.Amount%",
                     "%GiftCard.CouponCode%",
                     "%GiftCard.Message%"
-                });
+                }
+                    },
 
-                //product review tokens
-                _allowedTokens.Add(TokenGroupNames.ProductReviewTokens, new[]
+                    //product review tokens
+                    {
+                        TokenGroupNames.ProductReviewTokens,
+                        new[]
                 {
                     "%ProductReview.ProductName%"
-                });
+                }
+                    },
 
-                //attribute combination tokens
-                _allowedTokens.Add(TokenGroupNames.AttributeCombinationTokens, new[]
+                    //attribute combination tokens
+                    {
+                        TokenGroupNames.AttributeCombinationTokens,
+                        new[]
                 {
                     "%AttributeCombination.Formatted%",
                     "%AttributeCombination.SKU%",
                     "%AttributeCombination.StockQuantity%"
-                });
+                }
+                    },
 
-                //blog comment tokens
-                _allowedTokens.Add(TokenGroupNames.BlogCommentTokens, new[]
+                    //blog comment tokens
+                    {
+                        TokenGroupNames.BlogCommentTokens,
+                        new[]
                 {
                     "%BlogComment.BlogPostTitle%"
-                });
+                }
+                    },
 
-                //news comment tokens
-                _allowedTokens.Add(TokenGroupNames.NewsCommentTokens, new[]
+                    //news comment tokens
+                    {
+                        TokenGroupNames.NewsCommentTokens,
+                        new[]
                 {
                     "%NewsComment.NewsTitle%"
-                });
+                }
+                    },
 
-                //product back in stock tokens
-                _allowedTokens.Add(TokenGroupNames.ProductBackInStockTokens, new[]
+                    //product back in stock tokens
+                    {
+                        TokenGroupNames.ProductBackInStockTokens,
+                        new[]
                 {
                     "%BackInStockSubscription.ProductName%",
                     "%BackInStockSubscription.ProductUrl%"
-                });
+                }
+                    },
 
-                //email a friend tokens
-                _allowedTokens.Add(TokenGroupNames.EmailAFriendTokens, new[]
+                    //email a friend tokens
+                    {
+                        TokenGroupNames.EmailAFriendTokens,
+                        new[]
                 {
                     "%EmailAFriend.PersonalMessage%",
                     "%EmailAFriend.Email%"
-                });
+                }
+                    },
 
-                //wishlist to friend tokens
-                _allowedTokens.Add(TokenGroupNames.WishlistToFriendTokens, new[]
+                    //wishlist to friend tokens
+                    {
+                        TokenGroupNames.WishlistToFriendTokens,
+                        new[]
                 {
                     "%Wishlist.PersonalMessage%",
                     "%Wishlist.Email%"
-                });
+                }
+                    },
 
-                //VAT validation tokens
-                _allowedTokens.Add(TokenGroupNames.VatValidation, new[]
+                    //VAT validation tokens
+                    {
+                        TokenGroupNames.VatValidation,
+                        new[]
                 {
                     "%VatValidationResult.Name%",
                     "%VatValidationResult.Address%"
-                });
+                }
+                    },
 
-                //contact us tokens
-                _allowedTokens.Add(TokenGroupNames.ContactUs, new[]
+                    //contact us tokens
+                    {
+                        TokenGroupNames.ContactUs,
+                        new[]
                 {
                     "%ContactUs.SenderEmail%",
                     "%ContactUs.SenderName%",
                     "%ContactUs.Body%"
-                });
+                }
+                    },
 
-                //contact vendor tokens
-                _allowedTokens.Add(TokenGroupNames.ContactVendor, new[]
+                    //contact vendor tokens
+                    {
+                        TokenGroupNames.ContactVendor,
+                        new[]
                 {
                     "%ContactUs.SenderEmail%",
                     "%ContactUs.SenderName%",
                     "%ContactUs.Body%"
-                });
+                }
+                    }
+                };
 
                 return _allowedTokens;
             }

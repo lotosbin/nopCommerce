@@ -155,18 +155,20 @@ namespace Nop.Web.Framework.Security
         public static IEnumerable<string> GetDirectoriesWrite()
         {
             var rootDir = CommonHelper.MapPath("~/");
-            var dirsToCheck = new List<string>();
-            //dirsToCheck.Add(rootDir);
-            dirsToCheck.Add(Path.Combine(rootDir, "App_Data"));
-            dirsToCheck.Add(Path.Combine(rootDir, "bin"));
-            dirsToCheck.Add(Path.Combine(rootDir, "plugins"));
-            dirsToCheck.Add(Path.Combine(rootDir, "plugins\\bin"));
-            dirsToCheck.Add(Path.Combine(rootDir, "wwwroot\\bundles"));
-            dirsToCheck.Add(Path.Combine(rootDir, "wwwroot\\db_backups"));
-            dirsToCheck.Add(Path.Combine(rootDir, "wwwroot\\files\\exportimport"));
-            dirsToCheck.Add(Path.Combine(rootDir, "wwwroot\\images"));
-            dirsToCheck.Add(Path.Combine(rootDir, "wwwroot\\images\\thumbs"));
-            dirsToCheck.Add(Path.Combine(rootDir, "wwwroot\\images\\uploaded"));
+            var dirsToCheck = new List<string>
+            {
+                //dirsToCheck.Add(rootDir);
+                Path.Combine(rootDir, "App_Data"),
+                Path.Combine(rootDir, "bin"),
+                Path.Combine(rootDir, "plugins"),
+                Path.Combine(rootDir, "plugins\\bin"),
+                Path.Combine(rootDir, "wwwroot\\bundles"),
+                Path.Combine(rootDir, "wwwroot\\db_backups"),
+                Path.Combine(rootDir, "wwwroot\\files\\exportimport"),
+                Path.Combine(rootDir, "wwwroot\\images"),
+                Path.Combine(rootDir, "wwwroot\\images\\thumbs"),
+                Path.Combine(rootDir, "wwwroot\\images\\uploaded")
+            };
             return dirsToCheck;
         }
 

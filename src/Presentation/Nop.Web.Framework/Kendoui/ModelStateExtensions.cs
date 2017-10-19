@@ -27,8 +27,10 @@ namespace Nop.Web.Framework.Kendoui
                 }
             }
 
-            var dictionary = new Dictionary<string, object>();
-            dictionary["errors"] = errors.ToArray();
+            var dictionary = new Dictionary<string, object>
+            {
+                ["errors"] = errors.ToArray()
+            };
             return dictionary;
         }
 

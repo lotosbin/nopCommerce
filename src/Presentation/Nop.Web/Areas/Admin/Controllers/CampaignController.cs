@@ -345,8 +345,10 @@ namespace Nop.Web.Areas.Admin.Controllers
                 if (subscription != null)
                 {
                     //there's a subscription. let's use it
-                    var subscriptions = new List<NewsLetterSubscription>();
-                    subscriptions.Add(subscription);
+                    var subscriptions = new List<NewsLetterSubscription>
+                    {
+                        subscription
+                    };
                     _campaignService.SendCampaign(campaign, emailAccount, subscriptions);
                 }
                 else
